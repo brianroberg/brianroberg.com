@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Apple Intelligence and the Adoption Chasm</title>
+		<meta name="description" content="Thoughts on ideas concerning the church, society, and technology">
+		<link rel="alternate" href="feed/feed.xml" type="application/atom+xml" title="Brian Roberg&#39;s Blog">
+		
+		<style>/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
+}
+/* This is an arbitrary CSS string added to the bundle */
+/* Defaults */
+:root {
+	--font-family: -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #C0C0C0;
+	--color-gray-90: #333;
+
+	--background-color: #fff;
+
+	--text-color: var(--color-gray-90);
+	--text-color-link: #082840;
+	--text-color-link-active: #5f2b48;
+	--text-color-link-visited: #17050F;
+
+	--syntax-tab-size: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #C0C0C0;
+		--color-gray-90: #dad8d8;
+
+		/* --text-color is assigned to --color-gray-_ above */
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;
+
+		--background-color: #15202b;
+	}
+}
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+@view-transition {
+	navigation: auto;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 40em;
+}
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+}
+
+li {
+	line-height: 1.5;
+}
+
+a[href] {
+	color: var(--text-color-link);
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main,
+footer {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	display: flex;
+	justify-content: space-between;
+	gap: .5em 1em;
+	list-style: "";
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+.links-nextprev > * {
+	flex-grow: 1;
+}
+.links-nextprev-next {
+	text-align: right;
+}
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	overflow-x: auto;
+}
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1em; /* 16px /16 */
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 1.5rem;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+}
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+}
+.postlist-link {
+	font-size: 1.1875em; /* 19px /16 */
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/" class="home-link">Brian Roberg&#39;s Blog</a>
+			<nav>
+				<h2 class="visually-hidden" id="top-level-navigation-menu">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/">Home</a></li>
+					<li class="nav-item"><a href="/blog/">Archive</a></li>
+					<li class="nav-item"><a href="/about/">About</a></li>
+					<li class="nav-item"><a href="/feed/feed.xml">Feed</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			<heading-anchors>
+				
+<h1 id="apple-intelligence-and-the-adoption-chasm">Apple Intelligence and the Adoption Chasm</h1>
+
+<ul class="post-metadata">
+	<li><time datetime="2024-11-11">11 November 2024</time></li>
+	<li><a href="/tags/ai/" class="post-tag">ai</a>, </li>
+	<li><a href="/tags/apple/" class="post-tag">apple</a>, </li>
+	<li><a href="/tags/mac/" class="post-tag">mac</a></li>
+</ul>
+
+<p>When I heard about Apple's plans to roll out AI features in MacOS, I found myself recalling how I felt circa 1994 when companies started putting their web addresses in television commercials. I remember seeing those URLs on TV because I knew I was I was witnessing the web going mainstream. I'm not ready to predict how we'll look back on the beginning of Apple Intelligence, but I did give it a try on my Mac and it sparked a few thoughts about where things stand for broader adoption of AI technology.</p>
+<p>In his 1962 book <em>Diffusion of Innovations</em>, communication theorist Everett Rogers suggested that new technologies spread through culture in phases that map onto a normal distribution:</p>
+<p>According to Rogers, in the earliest days of a new technology, only a tiny sliver of &quot;innovators&quot; are willing to use it. (In fact most people haven't even heard of it yet.) Then as the technology develops, it attracts the attention of a larger group of tech-adventurous folks called &quot;early adopters.&quot; Some of these early adopters will discover valuable applications that attract further attention, and momentum builds. At some point—namely at 16% adoption if you accept Rogers' idea that this all fits a normal distribution—everyday non-technical people (the “early majority”) start adopting it. At this point the technology has gone mainstream.</p>
+<p>This is all very beautiful on a conceptual level, the gracefulness of the Bell curve implying an orderly coherence to the adoption of a new technology. (It also subtly implies that diffusion is inevitable, an idea which in its extreme form L.M. Sacasas called the <a href="https://thefrailestthing.com/2013/03/01/borg-complex-a-primer/">Borg Complex</a>.) But in 1991, an English professor-turned business consultant named Geoffrey Moore added a fascinating wrinkle to Rogers' beautiful curve. Moore posited the existence of a &quot;chasm&quot; that, at least in certain cases, divides the early adopter phase from the early majority phase.</p>
+<picture><source type="image/avif" srcset="/.11ty/image/?src=content%2Fblog%2Frogers.png&width=603&format=avif&via=transform 603w"><source type="image/webp" srcset="/.11ty/image/?src=content%2Fblog%2Frogers.png&width=603&format=webp&via=transform 603w"><img loading="lazy" decoding="async" src="/.11ty/image/?src=content%2Fblog%2Frogers.png&width=603&format=png&via=transform" alt="Rogers' Diffusion of Innovations Curve, with Moore's Chasm" width="603" height="327"></picture>
+<p>This chasm represents the fact that sometimes there is not a smooth progression from the early adopters to the early majority. Some technologies that seem to be making great progress never gain traction in the broader population. Other times the technology does eventually make the jump, but under the auspices of a company other than the one that developed it.</p>
+<p>What I find most interesting about Moore's chasm is its basis in a basic principle of communication: understanding your audience. Moore's assertion is that there is often a <em>qualitative</em> difference between what motivates early adopters and what motivates the early majority. This assertion makes intuitive sense: early adopters are drawn to new technologies <em>because</em> they are new. They enjoy trying new things whether they work well or not. The early majority, on the other hand, is not interested in novelty for its own sake. They want tools that <em>work</em>. They're willing to learn a few new things to get there, but they don't have nearly the patience that early adopters do for half-baked solutions.</p>
+<p>This is the danger of the chasm. A new technology can have all the promise in the world, including legions of excited early adopters who want to help it spread. But if those early adopters—or, more pointedly, a company that has developed a new technology and who wants to sell it to a broader market—fail to pitch the technology in a way that is compelling to the majority, it will fail.</p>
+<p>It seems to me that the use of LLMs for general computing workflows is somewhere in the vicinity of Moore's chasm right now. I believe that LLMs have so much latent power that there's no question <em>whether</em> they'll make the leap across the chasm. But I do think there are at least three major open questions:</p>
+<ol>
+<li>How long will it take before just about everyone is leveraging LLMs for basic personal computing workflows?</li>
+<li>What will this look like once it happens?</li>
+<li>Who will figure out how to profit from it?</li>
+</ol>
+<p>This brings us back to Apple, a company whose history we can understand better in light of Moore's chasm. In fact, you might say that Apple has built its success on its ability to traverse the chasm and be the first to tap into lucrative mass markets for new technologies. The graphical user interface, the MP3 player, the smartphone… Apple did not originate any of these technologies. But they were the first to market with a product that appealed to enthusiast and general-market user alike.</p>
+<p>The first thing I noticed is that using the new AI features is still very much an opt-in experience. I didn't know this going in, and at first I was surprised given the emphasis they've put on Apple Intelligence in their advertising. Upon further consideration, though, the move makes sense. Apple has a reputation for entering into new technologies cautiously, taking it slow while other companies rush to be the first to ship new features. If anything, Apple is moving sooner into generative AI than one might expect given their track record. So keeping the features behind an opt-in gate is not too surprising.</p>
+<p>There's another respect in which the actual features perhaps aren't what you'd expect based on Apple's marketing. The AI features are quite modest in their presentation. They're not flashy; they don't particularly draw attention to themselves. In other words, Apple is not aiming for whiz-bang with these features. They're aiming to improve the user experience through targeted application of some new capabilities.</p>
+
+<ul class="links-nextprev"><li class="links-nextprev-prev">← Previous<br> <a href="/blog/ai-disruption-meaning/">AI and Disruption</a></li>
+</ul>
+
+			</heading-anchors>
+		</main>
+
+		<footer>
+			<p><em>Built with <a href="https://www.11ty.dev/">Eleventy v3.0.0</a></em></p>
+		</footer>
+
+		<!-- This page `/blog/apple-intelligence-first-impressions/` was built on 2024-11-12T18:16:37.193Z -->
+		<script type="module" src="/dist/rJ3_G-2ArF.js"></script>
+	</body>
+</html>

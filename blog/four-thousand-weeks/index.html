@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Book Review: Four Thousand Weeks by Oliver Burkeman</title>
+		<meta name="description" content="Thoughts on ideas concerning the church, society, and technology">
+		<link rel="alternate" href="feed/feed.xml" type="application/atom+xml" title="Brian Roberg&#39;s Blog">
+		
+		<style>/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
+}
+/* This is an arbitrary CSS string added to the bundle */
+/* Defaults */
+:root {
+	--font-family: -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #C0C0C0;
+	--color-gray-90: #333;
+
+	--background-color: #fff;
+
+	--text-color: var(--color-gray-90);
+	--text-color-link: #082840;
+	--text-color-link-active: #5f2b48;
+	--text-color-link-visited: #17050F;
+
+	--syntax-tab-size: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #C0C0C0;
+		--color-gray-90: #dad8d8;
+
+		/* --text-color is assigned to --color-gray-_ above */
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;
+
+		--background-color: #15202b;
+	}
+}
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+@view-transition {
+	navigation: auto;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 40em;
+}
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+}
+
+li {
+	line-height: 1.5;
+}
+
+a[href] {
+	color: var(--text-color-link);
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main,
+footer {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	display: flex;
+	justify-content: space-between;
+	gap: .5em 1em;
+	list-style: "";
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+.links-nextprev > * {
+	flex-grow: 1;
+}
+.links-nextprev-next {
+	text-align: right;
+}
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	overflow-x: auto;
+}
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1em; /* 16px /16 */
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 1.5rem;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+}
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+}
+.postlist-link {
+	font-size: 1.1875em; /* 19px /16 */
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/" class="home-link">Brian Roberg&#39;s Blog</a>
+			<nav>
+				<h2 class="visually-hidden" id="top-level-navigation-menu">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/">Home</a></li>
+					<li class="nav-item"><a href="/blog/">Archive</a></li>
+					<li class="nav-item"><a href="/about/">About</a></li>
+					<li class="nav-item"><a href="/feed/feed.xml">Feed</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			<heading-anchors>
+				
+<h1 id="book-review-four-thousand-weeks-by-oliver-burkeman">Book Review: Four Thousand Weeks by Oliver Burkeman</h1>
+
+<ul class="post-metadata">
+	<li><time datetime="2022-01-31">31 January 2022</time></li>
+	<li><a href="/tags/book-review/" class="post-tag">book review</a>, </li>
+	<li><a href="/tags/productivity/" class="post-tag">productivity</a></li>
+</ul>
+
+<p>Every once in a while I've looked for a book that presents a cogent and intellectually honest case for finding meaning in life, but without reference to God. My various casual searches were thwarted by the fact that the most prominent books that are tagged as “atheist” tend towards polemic. Since most real people are not polemicists, I judged such books unhelpful for understanding the views of people I might actually talk to. I’d given up looking.</p>
+<p>I was reminded of this desire as I read Oliver Burkeman's new book, <em>Four Thousand Weeks: Time Management for Mortals</em>. As indicated by its subtitle, the nominal topic of the book is time management.  But the real scope of the book is both broader and deeper. In fact, I think a more accurate (if less marketable) subtitle would be something like <em>An Atheist’s Guide to Living Well.</em> In the end I concluded that this book delivers not only helpful insights related to time management, but also a broader perspective toward life that I found valuable to read even though I profoundly disagree with some of Burkeman’s basic premises.</p>
+<p>Burkeman takes it as a given that there is no God—at least no God about whom we can know enough that He should figure into any of our decision-making. But Burkeman’s tone is nothing like that of the strident atheists who sell books by railing against God. In fact, both times he quotes Scripture in the book he does so with a respectful tone (even if one of the quotes was taken out of context). But it was a verse of Scripture he did <em>not</em> quote which best captures a major part of Burkeman’s thesis. That verse is James 4:14: “Yet you do not know what tomorrow will bring. What is your life? For you are a mist that appears for a little time and then vanishes.”</p>
+<p>The principal virtue of this book is that it provides—in effect, if not by intent—a clear, thorough, and insightful exploration of the implications of James 4:14. The “four thousand weeks” of the title refers to the number of weeks (roughly) in an 80-year life span, and Burkeman does an excellent job calling out ways in which we tend to ignore the fact of our mortality—especially in the peculiar corner of the self-help publishing world that focuses on time management and productivity.</p>
+<p>Burkeman asserts that time management is a failed discipline, and not only because it doesn’t deliver on its promises in terms of objective productivity. The more fundamental problem with time management technique is the implicit promise that usually lies <em>behind</em> the technique: that if you just master the technique, you will achieve mastery over your life as well as freedom from the nagging feeling that your life is slipping through your fingers. Burkeman counters this seductive promise with hard reality. We are going to die. We are <em>finite beings</em> who are inescapably bound to limitations in time and opportunity. To the degree that time management promises that we can accomplish everything that’s important to us so that we’ll never have to say “no” to opportunities we’d really like to pursue—to that degree, time management is a delusion that disconnects us from reality and diminishes our lives.</p>
+<p>Burkeman is relentless in driving this home in one area of life after another. I lost track of how many times he said some variation of “This might sound bleak, but there’s freedom in acknowledging that it’s true.” I actually found this quite refreshing, as it reflects a pattern of argumentation that acknowledges that what we believe about ourselves doesn’t matter if our beliefs don’t conform to the true nature of reality. It also reflected his priorities in what he wanted to convey. He was clearly more interested in helping readers think clearly in the big picture than he was in teaching particular techniques. For example, whereas he mentioned David Allen once, he devoted several pages to discussing Martin Heidegger’s philosophy about man in relation to time.</p>
+<p>Not that the book was entirely ethereal. For instance, Burkeman suggested a litmus test for judging a particular time management technique: whether the technique helps you “neglect the right things.” Techniques are helpful insofar as they help surface the hard decisions about which opportunities to pursue and which to reject. On the other hand, he said, be wary of techniques that obscure or defer such decisions, and especially of those that deny that such decisions are necessary. (Though Burkeman did not call out many techniques by name, he did single out the “Big Rocks” illustration from Stephen Covey's book <em>First Things First</em>, calling it a “lie.”)</p>
+<p>Burkeman is similarly incisive in handling topics such as procrastination, attention, distraction, and rest. In each of these areas he went deeper than I had thought before and made connections I hadn’t made before. His discussion on these topics is worth the time of reading the book on its own.</p>
+<p>But as I mentioned earlier, the book is not so much <em>about</em> time management as that it uses time management as a rendezvous point for an expedition into the question of how to live life well. I will still commend Burkeman as a worthy guide in this endeavor, but with an important qualification. Christians who have a solid biblical understanding of who they are in relation to God and the world can benefit from Burkeman’s secular take on how to find meaning in life. People without a biblical grounding, however, could be led astray.</p>
+<p>In fact, if James 4:14 helps us see the virtues of this book, the following verse—James 4:15—serves as an indictment of its shortcomings. That verse says, “Instead you ought to say, ‘If the Lord wills, we will live and do this or that.’” Burkeman does not believe that God’s will should figure into our decision-making, so his guidance concerning the ultimate ground of our decision-making leads him to unbiblical conclusions. Like the Preacher of Ecclesiastes, he provides valuable insight regarding matters under the sun but has little to say about eternal matters.</p>
+<p>That said, I do want to credit Burkeman for his intellectual honesty. A less careful non-theist might assert that human life has inherent dignity and meaning, forgetting that for life to be <em>inherently</em> meaningful it must receive that meaning from something outside itself. (In the Christian conception, every person has dignity and purpose because every person is created in the image of God.) Burkeman, in contrast, shoulders the harder work of carving out a path for a person to imbue his own life with meaning in the midst of an indifferent universe. (He does this along existentialist lines, investing tremendous weight in the sanctity of human self-determination.)</p>
+<p>In sum, I would recommend <em>Four Thousand Weeks</em> to anyone looking to better understand the constraints we face as limited creatures. It is a rare book that earnestly seeks meaning in life while taking care not to smuggle in ideas that derive from some form of theism. Within these constraints (i.e. under the sun) it offers wisdom. In addition, its vivid picture of the struggle to construct meaning for one’s own life could also help Christians as they share with their secular friends how the gospel expands the horizon of our lives.</p>
+
+<ul class="links-nextprev"><li class="links-nextprev-next">Next →<br><a href="/blog/essentialism/">Book Review: Essentialism by Greg McKeown</a></li>
+</ul>
+
+			</heading-anchors>
+		</main>
+
+		<footer>
+			<p><em>Built with <a href="https://www.11ty.dev/">Eleventy v3.0.0</a></em></p>
+		</footer>
+
+		<!-- This page `/blog/four-thousand-weeks/` was built on 2024-11-16T03:04:00.401Z -->
+		<script type="module" src="/dist/rJ3_G-2ArF.js"></script>
+	</body>
+</html>
